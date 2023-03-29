@@ -13,9 +13,9 @@ public class Slytherin extends Hogwarts {
 
     @Override
     public String toString() {
-        return getName() + " " + getSurname() + ", магия: " + getMagic() + ", трансгрессия: " + getTransgression() +
-                ", хитрость: " + trick + ", решительность: " + determination + ", амбициозность: " + ambition +
-                ", находчивость: " + resourcefulness + ", жажда власти: " + lustForPower;
+        return super.toString() + ", хитрость: " + trick + ", решительность: " + determination +
+                ", амбициозность: " + ambition + ", находчивость: " + resourcefulness +
+                ", жажда власти: " + lustForPower;
     }
 
     public int getTrick() {
@@ -39,17 +39,17 @@ public class Slytherin extends Hogwarts {
     }
 
     public static void compareByNames(Slytherin[] slytherins, String a, String b) {
-        Slytherin pupilA = getPupilByName(slytherins, a);
-        Slytherin pupilB = getPupilByName(slytherins, b);
-        if (pupilA.trick + pupilA.determination + pupilA.ambition + pupilA.resourcefulness + pupilA.lustForPower >
-                pupilA.trick + pupilB.determination + pupilB.ambition + pupilB.resourcefulness + pupilB.lustForPower) {
-            System.out.println(pupilA.getName() + " лучший Слизеринец, чем " + pupilB.getName());
+        Slytherin studentA = getStudentByName(slytherins, a);
+        Slytherin studentB = getStudentByName(slytherins, b);
+        if (studentA.trick + studentA.determination + studentA.ambition + studentA.resourcefulness + studentA.lustForPower >
+                studentA.trick + studentB.determination + studentB.ambition + studentB.resourcefulness + studentB.lustForPower) {
+            System.out.println(studentA.getName() + " лучший Слизеринец, чем " + studentB.getName());
         } else {
-            System.out.println(pupilB.getName() + " лучший Слизеринец, чем " + pupilA.getName());
+            System.out.println(studentB.getName() + " лучший Слизеринец, чем " + studentA.getName());
         }
     }
 
-    private static Slytherin getPupilByName(Slytherin[] slytherins, String name) {
+    private static Slytherin getStudentByName(Slytherin[] slytherins, String name) {
         for (Slytherin slytherin : slytherins) {
             if (slytherin.getName().equals(name)) {
                 return slytherin;

@@ -12,8 +12,8 @@ public class Ravenclaw extends Hogwarts {
 
     @Override
     public String toString() {
-        return getName() + " " + getSurname() + ", магия: " + getMagic() + ", трансгрессия: " + getTransgression() +
-                ", ум: " + intellect + ", мудрость: " + wisdom + ", остроумие: " + wit + ", творчество: " + creativity;
+        return super.toString() + ", ум: " + intellect + ", мудрость: " + wisdom + ", остроумие: " + wit +
+                ", творчество: " + creativity;
     }
 
     public int getIntellect() {
@@ -33,17 +33,17 @@ public class Ravenclaw extends Hogwarts {
     }
 
     public static void compareByNames(Ravenclaw[] ravenclaws, String a, String b) {
-        Ravenclaw pupilA = getPupilByName(ravenclaws, a);
-        Ravenclaw pupilB = getPupilByName(ravenclaws, b);
-        if (pupilA.intellect + pupilA.wisdom + pupilA.wit + pupilA.creativity >
-                pupilB.intellect + pupilB.wisdom + pupilB.wit + pupilB.creativity) {
-            System.out.println(pupilA.getName() + " лучший Когтевранец, чем " + pupilB.getName());
+        Ravenclaw studentA = getStudentByName(ravenclaws, a);
+        Ravenclaw studentB = getStudentByName(ravenclaws, b);
+        if (studentA.intellect + studentA.wisdom + studentA.wit + studentA.creativity >
+                studentB.intellect + studentB.wisdom + studentB.wit + studentB.creativity) {
+            System.out.println(studentA.getName() + " лучший Когтевранец, чем " + studentB.getName());
         } else {
-            System.out.println(pupilB.getName() + " лучший Когтевранец, чем " + pupilA.getName());
+            System.out.println(studentB.getName() + " лучший Когтевранец, чем " + studentA.getName());
         }
     }
 
-    private static Ravenclaw getPupilByName(Ravenclaw[] ravenclaws, String name) {
+    private static Ravenclaw getStudentByName(Ravenclaw[] ravenclaws, String name) {
         for (Ravenclaw ravenclaw : ravenclaws) {
             if (ravenclaw.getName().equals(name)) {
                 return ravenclaw;

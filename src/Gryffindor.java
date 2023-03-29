@@ -11,8 +11,7 @@ public class Gryffindor extends Hogwarts {
 
     @Override
     public String toString() {
-        return getName() + " " + getSurname() + ", магия: " + getMagic() + ", трансгрессия: " + getTransgression() +
-                ", благородство: " + nobility + ", честь: " + honor + ", храбрость: " + bravery;
+        return super.toString() + ", благородство: " + nobility + ", честь: " + honor + ", храбрость: " + bravery;
     }
 
     public int getNobility() {
@@ -28,17 +27,17 @@ public class Gryffindor extends Hogwarts {
     }
 
     public static void compareByNames(Gryffindor[] gryffindors, String a, String b) {
-        Gryffindor pupilA = getPupilByName(gryffindors, a);
-        Gryffindor pupilB = getPupilByName(gryffindors, b);
-        if (pupilA.bravery + pupilA.honor + pupilA.nobility >
-                pupilB.bravery + pupilB.honor + pupilB.nobility) {
-            System.out.println(pupilA.getName() + " лучший Гриффиндорец, чем " + pupilB.getName());
+        Gryffindor studentA = getStudentByName(gryffindors, a);
+        Gryffindor studentB = getStudentByName(gryffindors, b);
+        if (studentA.bravery + studentA.honor + studentA.nobility >
+                studentB.bravery + studentB.honor + studentB.nobility) {
+            System.out.println(studentA.getName() + " лучший Гриффиндорец, чем " + studentB.getName());
         } else {
-            System.out.println(pupilB.getName() + " лучший Гриффиндорец, чем " + pupilA.getName());
+            System.out.println(studentB.getName() + " лучший Гриффиндорец, чем " + studentA.getName());
         }
     }
 
-    private static Gryffindor getPupilByName(Gryffindor[] gryffindors, String name) {
+    private static Gryffindor getStudentByName(Gryffindor[] gryffindors, String name) {
         for (Gryffindor gryffindor : gryffindors) {
             if (gryffindor.getName().equals(name)) {
                 return gryffindor;

@@ -11,8 +11,8 @@ public class Hufflepuff extends Hogwarts {
 
     @Override
     public String toString() {
-        return getName() + " " + getSurname() + ", магия: " + getMagic() + ", трансгрессия: " + getTransgression() +
-                ", трудолюбие: " + industriousness + ", верность: " + loyalty + ", честность: " + honesty;
+        return super.toString() + ", трудолюбие: " + industriousness + ", верность: " + loyalty +
+                ", честность: " + honesty;
     }
 
     public int getIndustriousness() {
@@ -28,17 +28,17 @@ public class Hufflepuff extends Hogwarts {
     }
 
     public static void compareByNames(Hufflepuff[] hufflepuffs, String a, String b) {
-        Hufflepuff pupilA = getPupilByName(hufflepuffs, a);
-        Hufflepuff pupilB = getPupilByName(hufflepuffs, b);
-        if (pupilA.industriousness + pupilA.loyalty + pupilA.honesty >
-                pupilB.industriousness + pupilB.loyalty + pupilB.honesty) {
-            System.out.println(pupilA.getName() + " лучший Пуффендуец, чем " + pupilB.getName());
+        Hufflepuff studentA = getStudentByName(hufflepuffs, a);
+        Hufflepuff studentB = getStudentByName(hufflepuffs, b);
+        if (studentA.industriousness + studentA.loyalty + studentA.honesty >
+                studentB.industriousness + studentB.loyalty + studentB.honesty) {
+            System.out.println(studentA.getName() + " лучший Пуффендуец, чем " + studentB.getName());
         } else {
-            System.out.println(pupilB.getName() + " лучший Пуффендуец, чем " + pupilA.getName());
+            System.out.println(studentB.getName() + " лучший Пуффендуец, чем " + studentA.getName());
         }
     }
 
-    private static Hufflepuff getPupilByName(Hufflepuff[] hufflepuffs, String name) {
+    private static Hufflepuff getStudentByName(Hufflepuff[] hufflepuffs, String name) {
         for (Hufflepuff hufflepuff : hufflepuffs) {
             if (hufflepuff.getName().equals(name)) {
                 return hufflepuff;
